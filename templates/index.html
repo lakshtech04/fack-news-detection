@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake News Detection</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            background-color: #2c3e50; /* Updated header background color */
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            border-radius: 20px 20px 0 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        form {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 22px);
+            padding: 15px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            border: 2px solid #ddd;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            border-color: #2c3e50; /* Updated input focus color */
+            outline: none;
+        }
+
+        input[type="submit"] {
+            padding: 15px 30px;
+            background: linear-gradient(to right, #3498db, #2980b9);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background: linear-gradient(to right, #2980b9, #1f6694);
+        }
+
+        h2 {
+            margin-top: 30px;
+            color: #007bff;
+            font-size: 24px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #2c3e50; /* Updated footer background color */
+            color: #fff;
+            border-radius: 0 0 20px 20px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .fas {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-newspaper"></i> Fake News Detection</h1>
+    </header>
+    <div class="container">
+        <form action="/predict" method="post">
+            <label for="title">Enter the news title:</label><br>
+            <input type="text" id="title" name="title" placeholder="Type here...">
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+        {% if prediction_result %}
+            <h2><i class="fas fa-check-circle"></i> Prediction Result: {{ prediction_result }}</h2>
+        {% endif %}
+    </div>
+    <footer>
+        <p>&copy; 2024 Fake News Detection by Lakshtech</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+</body>
+</html>
